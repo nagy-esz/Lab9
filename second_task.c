@@ -47,17 +47,26 @@ we need to be able to free it), and the new location is returned.
 
 char *copystring(char const *str)
 { // you've done this in task1, you can copy here that as well!
-    int length = strlen(str);
+    int len = strlen(str);
     char *newstr;
-    newstr = (char *)malloc((length + 1) * sizeof(char));
+    newstr = (char *)malloc((len + 1) * sizeof(char));
     if (newstr == NULL)
         return NULL; /* :( */
     strcpy(newstr, str);
     return newstr;
 }
 
-___ stringcat(___, ____)
+char* stringcat(char *str,char *newstr)
 {
+    //counting the length of the two string
+    int len1 = strlen(str);
+    int len2 = strlen(newstr);
+    //allocate memory for storing both of the string
+    char* added = malloc((len1+len2)*sizeof(char));
+    //put the string to the end of the original one
+    added = strcat(str, newstr);
+    //return with the new string
+    return added;
 }
 
 int main()
